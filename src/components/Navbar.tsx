@@ -41,9 +41,9 @@ const Navbar = () => {
     >
       <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
         <motion.div
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5 }}
+          initial={{ x: -100 }}
+          animate={{ x: 0 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
           className="text-2xl font-extrabold font-mono tracking-wide"
         >
           Nayeem's <span className="text-indigo-500">Portfolio</span>
@@ -53,9 +53,13 @@ const Navbar = () => {
           {navItems.map((item, index) => (
             <motion.div
               key={item.id}
-              initial={{ opacity: 0, y: -30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.3, delay: index * 0.1 }}
+              initial={{ y: -50 }}
+              animate={{ y: 0 }}
+              transition={{
+                duration: 0.3,
+                delay: index * 0.1,
+                ease: "easeOut",
+              }}
             >
               <Link
                 to={item.id}
@@ -113,7 +117,7 @@ const Navbar = () => {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="bg-white dark:bg-gray-900/90 md:hidden flex flex-col space-y-4 px-4 pb-4 overflow-hidden"
+            className="bg-white dark:bg-gray-900/90 md:hidden flex flex-col items-center space-y-4 px-4 pb-4 pt-2 overflow-hidden"
           >
             {navItems.map((item, index) => (
               <motion.div
@@ -121,6 +125,7 @@ const Navbar = () => {
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.3, delay: index * 0.1 }}
+                className="w-full text-center"
               >
                 <Link
                   to={item.id}
@@ -128,7 +133,7 @@ const Navbar = () => {
                   smooth={true}
                   offset={-70}
                   duration={500}
-                  className="cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-800 rounded-md p-2 text-center transition-all duration-300"
+                  className="cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-800 rounded-md p-2 inline-block transition-all duration-300"
                   activeClass="bg-gray-200 dark:bg-gray-800"
                   onClick={() => setMenuOpen(false)}
                 >
