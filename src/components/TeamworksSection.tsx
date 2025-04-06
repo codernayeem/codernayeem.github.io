@@ -1,46 +1,46 @@
 import { motion } from "framer-motion";
-import { FaTrophy, FaCertificate, FaUsers, FaMedal } from "react-icons/fa";
+import { FaTrophy, FaUsers } from "react-icons/fa";
 
 const achievements = [
   {
     type: "competition",
+    title: "Game of Datathon - Bitfest 2025",
+    description:
+      "Trained a ml model to predict maching score of the job requirements and the candidate's information. Won 'KUET Rising Team' award in the Game of Datathon competition at Bitfest 2025. Hosted by Department of CSE, KUET",
+    image: "images/bitfest-datathon-25.jpg",
+    role: "Machine Learning Engineer",
+    date: "January 2025",
+    icon: FaTrophy,
+  },
+  {
+    type: "competition",
     title: "5th Kibo Robot Programming Challenge",
     description:
-      "1st place in the national level and 3rd place in the international level competition. Programmed a robot to navigate, procees images, and complete tasks.",
-    image: "https://picsum.photos/800/600/",
-    role: "Machine Learning Engineer",
+      "1st place in the national level and 3rd place in the international level competition. Programmed a robot to navigate, procees images, and complete tasks. Hosted by Japan Aerospace Exploration Agency (JAXA).",
+    image: "images/kibo-rpc5.jpg",
+    role: "Core Contributor",
     date: "December 2024",
     icon: FaTrophy,
   },
   {
-    type: "certification",
-    title: "AWS Certified Solutions Architect",
+    type: "competition",
+    title: "SynergyX2024 Datathon Competition",
     description:
-      "Professional certification for designing distributed applications and systems on AWS.",
-    image: "https://picsum.photos/800/700/",
-    issuer: "Amazon Web Services",
-    date: "October 2023",
-    icon: FaCertificate,
+      "Hosted by Displine of CS, Khulna University. Trained a ml model on the provided dataset. Placed 5th in the competition.",
+    image: "images/ku-datathon.png",
+    role: "Machine Learning Engineer",
+    date: "November 2024",
+    icon: FaTrophy,
   },
   {
-    type: "team",
-    title: "Open Source Healthcare Project",
+    type: "competition",
+    title: "Hult Prize Kuet 2024",
     description:
-      "Contributed to an open-source project aimed at improving healthcare management systems.",
-    image: "https://picsum.photos/800/750/",
-    role: "Core Contributor",
-    date: "2023 - Present",
-    icon: FaUsers,
-  },
-  {
-    type: "certification",
-    title: "Google TensorFlow Developer",
-    description:
-      "Certification in building and training neural networks using TensorFlow.",
-    image: "https://picsum.photos/700/500/",
-    issuer: "Google",
-    date: "September 2023",
-    icon: FaMedal,
+      "Proposed a solution for the farming community in Bangladesh. I developed the mobile app (MVP) for the competition. We became the 1st runner up in the competition.",
+    image: "images/hult-24.jpeg",
+    role: "Mobile App Developer",
+    date: "March 2024",
+    icon: FaTrophy,
   },
 ];
 
@@ -95,12 +95,6 @@ const TeamworksSection = () => {
                     <div className="flex items-center space-x-2">
                       <FaUsers size={16} className="text-blue-500" />
                       <span>{item.role}</span>
-                    </div>
-                  )}
-                  {item.issuer && (
-                    <div className="flex items-center space-x-2">
-                      <FaCertificate size={16} className="text-blue-500" />
-                      <span>{item.issuer}</span>
                     </div>
                   )}
                   <div className="flex items-center space-x-2 text-gray-500">

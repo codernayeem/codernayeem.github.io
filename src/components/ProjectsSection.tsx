@@ -5,38 +5,38 @@ const projects = [
   {
     title: "Agro Care App",
     description:
-      "An marketplace & community app for farmers, gardeners & plant enthusiasts made with flutter and powered by Firebase and Flask.",
-    image: "agro_care_app.jpg",
+      "A plant disease detection, marketplace & community app for farmers, gardeners & plant enthusiasts made with flutter and powered by Firebase and Flask.",
+    image: "images/agro_care_app.jpg",
     tags: ["Flutter", "Firebase", "ML", "Android", "Rest API", "Flask"],
     github: "https://github.com/codernayeem/agro-care-app",
     live: "https://github.com/codernayeem/agro-care-app/releases/tag/v1.0.0",
   },
   {
-    title: "AI Image Generator",
+    title: "Fly Me Game",
     description:
-      "A web application that uses machine learning to generate unique images from text descriptions. Built with Python, TensorFlow, and React.",
-    image: "https://picsum.photos/1000/700/",
-    tags: ["Python", "TensorFlow", "React", "Flask"],
-    github: "https://github.com/username/ai-image-generator",
-    live: "https://ai-image-generator.example.com",
+      "A console based 2D game made with C++. The player controls a plane to fly through the obstacles and collect the coins.",
+    image: "images/fly-me-game.png",
+    tags: ["C++", "Console", "Game"],
+    github: "https://github.com/codernayeem/fly-me-game",
+    live: "https://github.com/codernayeem/fly-me-game",
   },
   {
-    title: "Task Management System",
+    title: "Web Share Zone",
     description:
-      "A collaborative task management platform with real-time updates, team chat, and project analytics.",
-    image: "https://picsum.photos/1000/900/",
-    tags: ["Flutter", "Firebase", "GraphQL"],
-    github: "https://github.com/username/task-manager",
-    live: "https://task-manager.example.com",
+      "A web application that allows users to share files with each other. Made with Flask, HTML, CSS, JavaScript, and SQLite.",
+    image: "images/web-share-zone.png",
+    tags: ["Flask", "HTML", "CSS", "JavaScript", "SQLite"],
+    github: "https://github.com/codernayeem/web-share-zone",
+    live: "https://github.com/codernayeem/web-share-zone",
   },
   {
-    title: "Smart Home IoT Dashboard",
+    title: "Kuet CSE 2K21 App",
     description:
-      "A dashboard for monitoring and controlling IoT devices in a smart home environment. Features real-time data visualization.",
-    image: "https://picsum.photos/1000/850/",
-    tags: ["React", "Node.js", "MongoDB", "MQTT"],
-    github: "https://github.com/username/smart-home",
-    live: "https://smart-home.example.com",
+      "A mobile app for the stident of KUET CSE 2K21 batch featuring a batchmate's list & informations, teacher's informations, routines & more. Made with Kotlin & Firebase",
+    image: "images/kuet-cse-app.jpeg",
+    tags: ["Kotlin", "Firebase", "Android"],
+    github: "https://github.com/codernayeem",
+    live: "https://github.com/codernayeem",
   },
 ];
 
