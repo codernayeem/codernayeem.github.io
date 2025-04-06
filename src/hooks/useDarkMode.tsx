@@ -13,12 +13,20 @@ const useDarkMode = () => {
 
   useEffect(() => {
     const htmlElement = document.documentElement;
-    localStorage.setItem(DARK_MODE_KEY, enabled.toString());
-    if (enabled) {
-      htmlElement.classList.add("dark");
-    } else {
-      htmlElement.classList.remove("dark");
-    }
+    const applyDarkMode = () => {
+      localStorage.setItem(DARK_MODE_KEY, enabled.toString());
+      if (enabled) {
+        requestAnimationFrame(() => {
+          htmlElement.classList.add("dark");
+        });
+      } else {
+        requestAnimationFrame(() => {
+          htmlElement.classList.remove("dark");
+        });
+      }
+    };
+
+    applyDarkMode();
   }, [enabled]);
 
   const toggle = () => setEnabled((prev) => !prev);
