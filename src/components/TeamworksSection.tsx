@@ -39,7 +39,7 @@ const achievements = [
       "Proposed a solution for the farming community in Bangladesh. I developed the mobile app (MVP) for the competition. We became the 1st runner up in the competition.",
     image: "images/hult-24.jpeg",
     role: "Mobile App Developer",
-    date: "March 2024",
+    date: "February 2024",
     icon: FaTrophy,
   },
 ];

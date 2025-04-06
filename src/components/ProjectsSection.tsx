@@ -5,7 +5,7 @@ const projects = [
   {
     title: "Agro Care App",
     description:
-      "A plant disease detection, marketplace & community app for farmers, gardeners & plant enthusiasts made with flutter and powered by Firebase and Flask.",
+      "A plant disease detection, marketplace & community app for farmers, gardeners & plant enthusiasts made with flutter and powered by Firebase and Flask. Won 'Best Project Award' from KUET CSE Department.",
     image: "images/agro_care_app.jpg",
     tags: ["Flutter", "Firebase", "ML", "Android", "Rest API", "Flask"],
     github: "https://github.com/codernayeem/agro-care-app",
