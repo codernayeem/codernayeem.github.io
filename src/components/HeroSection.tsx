@@ -1,20 +1,23 @@
 import { FaGithub, FaLinkedin, FaFacebook, FaWhatsapp } from "react-icons/fa";
 import { motion } from "framer-motion";
+import AnimatedBackground from "./AnimatedBackground";
 
 const HeroSection = () => {
   return (
-    <section className="min-h-screen flex flex-col md:flex-row items-center justify-center px-4 md:px-20 gap-10 pt-28">
+    <section className="relative min-h-screen flex flex-col md:flex-row items-center justify-center px-4 md:px-20 gap-10 pt-28">
+      <AnimatedBackground />
+
       <motion.img
         src="https://avatars.githubusercontent.com/u/65258767?s=400&u=36991f6fe32045d3a493e3e913e7e28b4a2b0a68&v=4"
         alt="Md. Nayeem"
-        className="rounded-full w-56 h-56 object-cover shadow-lg"
+        className="rounded-full w-56 h-56 object-cover shadow-lg relative z-10"
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
       />
 
       <motion.div
-        className="text-center md:text-left"
+        className="text-center md:text-left relative z-10"
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
