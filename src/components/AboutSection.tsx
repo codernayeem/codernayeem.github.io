@@ -1,29 +1,6 @@
 import { motion } from "framer-motion";
-import { Code2, Lightbulb, Target, Zap } from "lucide-react";
 
 const AboutSection = () => {
-  const highlights = [
-    {
-      icon: Code2,
-      title: "Clean Code",
-      description: "Writing maintainable, scalable code that stands the test of time",
-    },
-    {
-      icon: Zap,
-      title: "Performance",
-      description: "Optimizing every pixel and millisecond for the best user experience",
-    },
-    {
-      icon: Lightbulb,
-      title: "Innovation",
-      description: "Exploring cutting-edge tech to solve real-world problems",
-    },
-    {
-      icon: Target,
-      title: "Impact",
-      description: "Building solutions that make a meaningful difference",
-    },
-  ];
 
   return (
     <div className="relative py-24 md:py-32">
@@ -51,23 +28,30 @@ const AboutSection = () => {
               </h2>
               <div className="space-y-5 text-neutral-600 dark:text-neutral-400 text-lg leading-relaxed">
                 <p>
-                  I'm a developer who believes in the power of well-crafted software to transform 
-                  how people interact with technology. Currently pursuing my CS degree at{" "}
+                  I'm a software engineer who ships production-ready applications. Currently 
+                  pursuing my CS degree at{" "}
                   <span className="text-neutral-900 dark:text-neutral-200 font-medium">
                     KUET
                   </span>
-                  , I specialize in building mobile applications that users genuinely enjoy.
+                  {" "}while working professionally as a mobile developer at{" "}
+                  <span className="text-neutral-900 dark:text-neutral-200 font-medium">
+                    Transforms AI
+                  </span>
+                  {" "}and co-founding{" "}
+                  <span className="text-neutral-900 dark:text-neutral-200 font-medium">
+                    AlgoOasis
+                  </span>.
                 </p>
                 <p>
-                  My journey started with curiosity about how apps work, and evolved into a 
-                  passion for creating them. From native Android with Kotlin to cross-platform 
-                  solutions with Flutter, I've developed a diverse toolkit that allows me to 
-                  choose the right technology for each unique challenge.
+                  My expertise spans the full development lifecycle — from system design to 
+                  deployment. I build cross-platform mobile apps with Flutter, Kotlin & Swift, 
+                  and full-stack web applications using React, Next.js, and Node.js with 
+                  databases like PostgreSQL and MySQL.
                 </p>
                 <p>
-                  Beyond mobile development, I'm deeply fascinated by Machine Learning and its 
-                  potential to create intelligent, adaptive applications. This combination of 
-                  skills allows me to build apps that don't just function—they learn and improve.
+                  I've handled real-world deployments on cPanel, VPS, and cloud platforms, 
+                  setting up CI/CD pipelines with GitHub Actions. Beyond coding, I'm passionate 
+                  about Machine Learning and building intelligent features into products.
                 </p>
               </div>
             </div>
@@ -77,13 +61,13 @@ const AboutSection = () => {
               <div className="sticky top-32">
                 <div className="card p-8">
                   <h3 className="text-sm font-semibold text-neutral-500 dark:text-neutral-500 uppercase tracking-wider mb-6">
-                    Quick Facts
+                    See this if U are in hurry
                   </h3>
                   <div className="space-y-6">
                     {[
-                      { label: "Primary Focus", value: "Mobile Development" },
-                      { label: "Languages", value: "Dart, Kotlin, Python" },
-                      { label: "Frameworks", value: "Flutter, TensorFlow" },
+                      { label: "Primary Focus", value: "Full Stack Development" },
+                      { label: "Languages", value: "TypeScript, Dart, Python" },
+                      { label: "Frameworks", value: "Flutter, React, Next.js" },
                       { label: "Education", value: "CSE @ KUET" },
                     ].map((fact) => (
                       <div key={fact.label} className="flex justify-between items-center">
@@ -100,36 +84,6 @@ const AboutSection = () => {
               </div>
             </div>
           </div>
-        </motion.div>
-
-        {/* Highlights grid */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          viewport={{ once: true }}
-          className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6"
-        >
-          {highlights.map((item, index) => (
-            <motion.div
-              key={item.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              className="group p-6 rounded-2xl border border-neutral-200 dark:border-neutral-800 hover:border-neutral-300 dark:hover:border-neutral-700 transition-all duration-300 hover:shadow-lg hover:shadow-neutral-200/50 dark:hover:shadow-neutral-900/50"
-            >
-              <div className="w-12 h-12 mb-4 rounded-xl bg-neutral-100 dark:bg-neutral-800 flex items-center justify-center text-neutral-600 dark:text-neutral-400 group-hover:bg-indigo-500 group-hover:text-white transition-all duration-300">
-                <item.icon size={24} />
-              </div>
-              <h3 className="font-semibold text-neutral-900 dark:text-neutral-100 mb-2">
-                {item.title}
-              </h3>
-              <p className="text-sm text-neutral-600 dark:text-neutral-400">
-                {item.description}
-              </p>
-            </motion.div>
-          ))}
         </motion.div>
       </div>
     </div>

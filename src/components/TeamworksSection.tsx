@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Trophy, Medal, Users, Calendar } from "lucide-react";
+import { Trophy, Users, Calendar } from "lucide-react";
 
 const achievements = [
   {
@@ -78,9 +78,7 @@ const TeamworksSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className={`card overflow-hidden group ${
-                index === 0 ? "md:row-span-2" : ""
-              }`}
+              className={`card overflow-hidden group`}
             >
               {/* Image section */}
               <div className={`relative overflow-hidden ${index === 0 ? "h-64" : "h-44"}`}>
@@ -129,38 +127,6 @@ const TeamworksSection = () => {
             </motion.article>
           ))}
         </div>
-
-        {/* Stats summary */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-          viewport={{ once: true }}
-          className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4"
-        >
-          {[
-            { icon: Trophy, label: "Competitions", value: "4+" },
-            { icon: Medal, label: "Awards Won", value: "5+" },
-            { icon: Users, label: "Team Projects", value: "6+" },
-            { icon: Calendar, label: "Years Active", value: "2+" },
-          ].map((stat) => (
-            <div
-              key={stat.label}
-              className="text-center p-6 rounded-2xl bg-neutral-50 dark:bg-neutral-900/50 border border-neutral-200 dark:border-neutral-800"
-            >
-              <stat.icon
-                size={24}
-                className="mx-auto mb-3 text-neutral-400 dark:text-neutral-600"
-              />
-              <p className="text-2xl font-bold text-neutral-900 dark:text-neutral-100 mb-1">
-                {stat.value}
-              </p>
-              <p className="text-sm text-neutral-500 dark:text-neutral-500">
-                {stat.label}
-              </p>
-            </div>
-          ))}
-        </motion.div>
       </div>
     </div>
   );

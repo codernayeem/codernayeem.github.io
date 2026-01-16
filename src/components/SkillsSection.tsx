@@ -1,36 +1,45 @@
 import { motion } from "framer-motion";
-import { FaReact, FaPython, FaGitAlt, FaJava } from "react-icons/fa";
-import { SiFlutter, SiTensorflow, SiFirebase, SiKotlin, SiDart, SiPytorch } from "react-icons/si";
-import { TbBrandCpp } from "react-icons/tb";
+import { FaReact, FaPython, FaGitAlt, FaDocker } from "react-icons/fa";
+import { SiFlutter, SiTensorflow, SiFirebase, SiKotlin, SiTypescript, SiNextdotjs, SiPostgresql, SiMysql, SiSwift, SiTailwindcss, SiPytorch } from "react-icons/si";
 
 const skillCategories = [
   {
     title: "Mobile Development",
-    description: "Building seamless cross-platform & native experiences",
+    description: "Cross-platform & native app development",
     skills: [
       { name: "Flutter", icon: SiFlutter, proficiency: "Expert" },
-      { name: "Dart", icon: SiDart, proficiency: "Expert" },
       { name: "Kotlin", icon: SiKotlin, proficiency: "Advanced" },
+      { name: "Swift", icon: SiSwift, proficiency: "Intermediate" },
       { name: "Firebase", icon: SiFirebase, proficiency: "Advanced" },
     ],
   },
   {
-    title: "AI & Machine Learning",
-    description: "Creating intelligent, data-driven solutions",
+    title: "Web Development",
+    description: "Full-stack web applications & APIs",
     skills: [
-      { name: "Python", icon: FaPython, proficiency: "Expert" },
-      { name: "TensorFlow", icon: SiTensorflow, proficiency: "Intermediate" },
-      { name: "PyTorch", icon: SiPytorch, proficiency: "Intermediate" },
+      { name: "React", icon: FaReact, proficiency: "Advanced" },
+      { name: "Next.js", icon: SiNextdotjs, proficiency: "Advanced" },
+      { name: "TypeScript", icon: SiTypescript, proficiency: "Advanced" },
+      { name: "Tailwind CSS", icon: SiTailwindcss, proficiency: "Expert" },
     ],
   },
   {
-    title: "Web & Tools",
-    description: "Full-stack capabilities and dev tooling",
+    title: "Backend & DevOps",
+    description: "APIs, databases & deployment pipelines",
     skills: [
-      { name: "React", icon: FaReact, proficiency: "Intermediate" },
-      { name: "Git", icon: FaGitAlt, proficiency: "Advanced" },
-      { name: "Java", icon: FaJava, proficiency: "Advanced" },
-      { name: "C++", icon: TbBrandCpp, proficiency: "Advanced" },
+      { name: "PostgreSQL", icon: SiPostgresql, proficiency: "Advanced" },
+      { name: "MySQL", icon: SiMysql, proficiency: "Advanced" },
+      { name: "Docker", icon: FaDocker, proficiency: "Intermediate" },
+      { name: "Git & CI/CD", icon: FaGitAlt, proficiency: "Advanced" },
+    ],
+  },
+  {
+    title: "AI & Data",
+    description: "Machine learning & data solutions",
+    skills: [
+      { name: "Python", icon: FaPython, proficiency: "Expert" },
+      { name: "PyTorch", icon: SiPytorch, proficiency: "Intermediate" },
+      { name: "TensorFlow", icon: SiTensorflow, proficiency: "Intermediate" },
     ],
   },
 ];
@@ -73,9 +82,11 @@ const SkillsSection = () => {
               viewport={{ once: true }}
               className={`card p-8 ${
                 categoryIndex === 0
-                  ? "lg:col-span-7 lg:row-span-2"
+                  ? "lg:col-span-6"
                   : categoryIndex === 1
-                  ? "lg:col-span-5"
+                  ? "lg:col-span-6"
+                  : categoryIndex === 2
+                  ? "lg:col-span-7"
                   : "lg:col-span-5"
               }`}
             >
@@ -89,7 +100,7 @@ const SkillsSection = () => {
                   </p>
                 </div>
 
-                <div className={`grid gap-4 ${categoryIndex === 0 ? "sm:grid-cols-2" : "grid-cols-1"}`}>
+                <div className={`grid gap-4 ${categoryIndex === 0 || categoryIndex === 1 ? "sm:grid-cols-2" : "grid-cols-1"}`}>
                   {category.skills.map((skill, skillIndex) => (
                     <motion.div
                       key={skill.name}
@@ -138,13 +149,15 @@ const SkillsSection = () => {
           </p>
           <div className="flex flex-wrap justify-center gap-2">
             {[
+              "Express.js",
+              "Fastify",
+              "Flask",
+              "MongoDB",
               "REST APIs",
-              "SQLite",
-              "UI/UX Design",
-              "Agile",
-              "CI/CD",
-              "Linux",
-              "Data Analysis",
+              "Prisma ORM",
+              "shadcn/ui",
+              "VPS Deployment",
+              "cPanel",
             ].map((skill) => (
               <span
                 key={skill}

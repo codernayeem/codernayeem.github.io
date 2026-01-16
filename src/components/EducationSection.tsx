@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { GraduationCap, Award, BookOpen } from "lucide-react";
+import { Award } from "lucide-react";
 
 const education = [
   {
@@ -130,49 +130,6 @@ const EducationSection = () => {
             </motion.div>
           ))}
         </div>
-
-        {/* Additional info */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          viewport={{ once: true }}
-          className="mt-16 grid sm:grid-cols-3 gap-6"
-        >
-          {[
-            {
-              icon: GraduationCap,
-              title: "Academic Excellence",
-              description: "Maintaining 3.96+ CGPA",
-            },
-            {
-              icon: Award,
-              title: "Project Recognition",
-              description: "Best Project Award Winner",
-            },
-            {
-              icon: BookOpen,
-              title: "Continuous Learning",
-              description: "Always exploring new tech",
-            },
-          ].map((item) => (
-            <div
-              key={item.title}
-              className="text-center p-6 rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-white/50 dark:bg-neutral-900/50"
-            >
-              <item.icon
-                size={28}
-                className="mx-auto mb-3 text-indigo-500 dark:text-indigo-400"
-              />
-              <h4 className="font-semibold text-neutral-900 dark:text-neutral-100 mb-1">
-                {item.title}
-              </h4>
-              <p className="text-sm text-neutral-500 dark:text-neutral-500">
-                {item.description}
-              </p>
-            </div>
-          ))}
-        </motion.div>
       </div>
     </div>
   );

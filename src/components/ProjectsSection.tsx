@@ -14,6 +14,17 @@ const projects = [
     award: "Best Project Award",
   },
   {
+    title: "ProjectBuddy",
+    description:
+      "LinkedIn-style social platform for students to connect, collaborate on teams with role-based permissions, share posts, and manage projects together. Built with React, TypeScript, PostgreSQL & Prisma.",
+    image: "images/project-buddy.png",
+    tags: ["React", "TypeScript", "PostgreSQL", "Prisma", "Express"],
+    github: "https://github.com/codernayeem/ProjectBuddy",
+    live: "https://github.com/codernayeem/ProjectBuddy",
+    featured: false,
+    award: null,
+  },
+  {
     title: "KUET CSE 2K21",
     description:
       "Comprehensive mobile app for KUET CSE 2K21 batch with student directory, faculty info, class routines and more.",
@@ -31,16 +42,6 @@ const projects = [
     tags: ["Flask", "JavaScript", "SQLite"],
     github: "https://github.com/codernayeem/web-share-zone",
     live: "https://github.com/codernayeem/web-share-zone",
-    featured: false,
-  },
-  {
-    title: "Fly Me Game",
-    description:
-      "Retro-style console 2D game where players navigate a plane through obstacles while collecting coins.",
-    image: "images/fly-me-game.png",
-    tags: ["C++", "Game Dev"],
-    github: "https://github.com/codernayeem/fly-me-game",
-    live: "https://github.com/codernayeem/fly-me-game",
     featured: false,
   },
 ];

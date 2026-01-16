@@ -19,9 +19,9 @@ const Footer = () => {
   const quickLinks = [
     { label: "About", to: "about" },
     { label: "Skills", to: "skills" },
+    { label: "Experience", to: "experience" },
     { label: "Projects", to: "projects" },
     { label: "Achievements", to: "teamworks" },
-    { label: "Education", to: "education" },
     { label: "Contact", to: "contact" },
   ];
 
@@ -39,8 +39,8 @@ const Footer = () => {
               Md. Nayeem
             </h3>
             <p className="text-neutral-600 dark:text-neutral-400 mb-6 leading-relaxed">
-              Mobile App Developer & ML Engineer based in Bangladesh. Passionate
-              about building elegant solutions that make a difference.
+              Software Engineer & Full Stack Developer based in Bangladesh. Building 
+              production-ready mobile and web applications that solve real problems.
             </p>
             <div className="flex gap-3">
               {socialLinks.map((social) => (

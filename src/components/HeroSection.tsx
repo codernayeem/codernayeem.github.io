@@ -76,9 +76,9 @@ const HeroSection = () => {
           variants={itemVariants}
           className="text-xl md:text-2xl text-neutral-600 dark:text-neutral-400 mb-6 font-medium"
         >
-          Mobile App Developer{" "}
+          Software Engineer{" "}
           <span className="text-neutral-400 dark:text-neutral-600">·</span>{" "}
-          <span className="text-gradient">ML Engineer</span>
+          <span className="text-gradient">Full Stack Developer</span>
         </motion.p>
 
         {/* Location */}
@@ -95,8 +95,8 @@ const HeroSection = () => {
           variants={itemVariants}
           className="text-lg text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto mb-10 leading-relaxed"
         >
-          Crafting elegant mobile experiences with Flutter & Kotlin. 
-          Passionate about building AI-powered solutions that make a real difference.
+          Building production-ready mobile & web applications. From Flutter apps to 
+          full-stack platforms — shipping code that scales.
         </motion.p>
 
         {/* CTA Buttons */}
