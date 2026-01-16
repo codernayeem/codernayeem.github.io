@@ -1,6 +1,6 @@
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { Link } from "react-scroll";
-import { ArrowUp, Heart } from "lucide-react";
+import { ArrowUp } from "lucide-react";
 
 const Footer = () => {
   const socialLinks = [

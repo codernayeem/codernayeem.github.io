@@ -41,10 +41,10 @@ const Navbar = () => {
 
   return (
     <header
-      className={`fixed w-full top-0 z-50 transition-all duration-300 ${
+      className={`fixed w-full top-0 z-50 transition-all duration-300 border-b ${
         scrolled
-          ? "bg-white/80 dark:bg-neutral-900/80 backdrop-blur-lg border-b border-neutral-200 dark:border-neutral-800 py-2"
-          : "bg-transparent py-4"
+          ? "bg-white/80 dark:bg-neutral-900/80 backdrop-blur-lg border-neutral-200/80 dark:border-neutral-800/80 py-2"
+          : "bg-transparent border-transparent py-4"
       }`}
     >
       <div className="max-w-6xl mx-auto px-6 flex items-center justify-between">
