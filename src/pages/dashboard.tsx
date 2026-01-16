@@ -11,8 +11,11 @@ import Footer from "../components/Footer";
 const Dashboard = () => {
   return (
     <>
+      {/* Subtle grain texture overlay for depth */}
+      <div className="grain-overlay" aria-hidden="true" />
+      
       <Navbar />
-      <main className="overflow-x-hidden scroll-smooth">
+      <main className="overflow-x-hidden">
         <section id="home">
           <HeroSection />
         </section>

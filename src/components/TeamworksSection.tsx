@@ -1,111 +1,167 @@
 import { motion } from "framer-motion";
-import { FaTrophy, FaUsers } from "react-icons/fa";
+import { Trophy, Medal, Users, Calendar } from "lucide-react";
 
 const achievements = [
   {
-    type: "competition",
-    title: "Game of Datathon - Bitfest 2025",
-    description:
-      "Trained a ml model to predict maching score of the job requirements and the candidate's information. Won 'KUET Rising Team' award in the Game of Datathon competition at Bitfest 2025. Hosted by Department of CSE, KUET",
-    image: "images/bitfest-datathon-25.jpg",
-    role: "Machine Learning Engineer",
-    date: "January 2025",
-    icon: FaTrophy,
-  },
-  {
-    type: "competition",
     title: "5th Kibo Robot Programming Challenge",
+    organization: "JAXA (Japan Aerospace Exploration Agency)",
     description:
-      "1st place in the national level and 3rd place in the international level competition. Programmed a robot to navigate, procees images, and complete tasks. Hosted by Japan Aerospace Exploration Agency (JAXA).",
+      "1st place nationally & 3rd internationally. Programmed a robot to navigate, process images, and complete complex autonomous tasks in space simulation.",
     image: "images/kibo-rpc5.jpg",
     role: "Core Contributor",
     date: "December 2024",
-    icon: FaTrophy,
+    highlight: "🥇 National Champion",
+    position: "1st National / 3rd International",
   },
   {
-    type: "competition",
-    title: "SynergyX2024 Datathon Competition",
+    title: "Game of Datathon - Bitfest 2025",
+    organization: "Department of CSE, KUET",
     description:
-      "Hosted by Displine of CS, Khulna University. Trained a ml model on the provided dataset. Placed 5th in the competition.",
+      "Developed ML model for job-candidate matching score prediction. Recognized as 'KUET Rising Team' among participants.",
+    image: "images/bitfest-datathon-25.jpg",
+    role: "ML Engineer",
+    date: "January 2025",
+    highlight: "⭐ Rising Team Award",
+    position: "Rising Team Award",
+  },
+  {
+    title: "SynergyX2024 Datathon",
+    organization: "Discipline of CS, Khulna University",
+    description:
+      "Competed in data science competition with custom ML pipeline. Achieved top 5 placement among numerous teams.",
     image: "images/ku-datathon.png",
-    role: "Machine Learning Engineer",
+    role: "ML Engineer",
     date: "November 2024",
-    icon: FaTrophy,
+    highlight: "🏆 Top 5",
+    position: "5th Place",
   },
   {
-    type: "competition",
-    title: "Hult Prize Kuet 2024",
+    title: "Hult Prize KUET 2024",
+    organization: "Hult Prize Foundation",
     description:
-      "Proposed a solution for the farming community in Bangladesh. I developed the mobile app (MVP) for the competition. We became the 1st runner up in the competition.",
+      "Proposed innovative farming solution for Bangladesh. Developed the MVP mobile application that secured 1st Runner Up position.",
     image: "images/hult-24.jpeg",
-    role: "Mobile App Developer",
+    role: "App Developer",
     date: "February 2024",
-    icon: FaTrophy,
+    highlight: "🥈 1st Runner Up",
+    position: "1st Runner Up",
   },
 ];
 
 const TeamworksSection = () => {
   return (
-    <div className="min-h-screen py-20 px-4 md:px-20">
-      <motion.div
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-        className="max-w-6xl mx-auto"
-      >
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-          Team Works & Achievements
-        </h2>
+    <div className="relative py-24 md:py-32">
+      <div className="max-w-6xl mx-auto px-6">
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <span className="inline-block text-sm font-semibold text-indigo-500 dark:text-indigo-400 uppercase tracking-wider mb-4">
+            Achievements
+          </span>
+          <h2 className="section-heading mb-4">Competitions & Teamwork</h2>
+          <p className="section-subheading mx-auto">
+            Collaborative projects and competitions that pushed my limits
+          </p>
+        </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        {/* Achievements - Bento-style asymmetric grid */}
+        <div className="grid md:grid-cols-2 gap-6">
           {achievements.map((item, index) => (
-            <motion.div
+            <motion.article
               key={item.title}
-              className="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg transition-transform transform hover:scale-[1.02]"
-              initial={{ opacity: 0, y: 50 }}
+              initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
+              className={`card overflow-hidden group ${
+                index === 0 ? "md:row-span-2" : ""
+              }`}
             >
-              <div className="relative h-48">
+              {/* Image section */}
+              <div className={`relative overflow-hidden ${index === 0 ? "h-64" : "h-44"}`}>
                 <img
                   src={item.image}
                   alt={item.title}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  loading="lazy"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
-                <div className="absolute bottom-4 left-4 right-4 text-white">
-                  <div className="flex items-center space-x-2 mb-2">
-                    <item.icon size={20} />
-                    <span className="text-sm uppercase tracking-wider">
-                      {item.type}
-                    </span>
-                  </div>
-                  <h3 className="text-xl font-semibold">{item.title}</h3>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                
+                {/* Position badge */}
+                <div className="absolute top-4 right-4">
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white/90 dark:bg-neutral-900/90 backdrop-blur-sm text-sm font-semibold rounded-full text-neutral-900 dark:text-neutral-100">
+                    <Trophy size={14} className="text-amber-500" />
+                    {item.position}
+                  </span>
+                </div>
+
+                {/* Title overlay */}
+                <div className="absolute bottom-4 left-4 right-4">
+                  <p className="text-xs text-neutral-300 mb-1">{item.organization}</p>
+                  <h3 className="text-lg font-semibold text-white line-clamp-2">
+                    {item.title}
+                  </h3>
                 </div>
               </div>
 
-              <div className="p-6">
-                <p className="text-gray-600 dark:text-gray-300 mb-4">
+              {/* Content */}
+              <div className={`p-6 ${index === 0 ? "flex-1" : ""}`}>
+                <p className="text-neutral-600 dark:text-neutral-400 text-sm leading-relaxed mb-4">
                   {item.description}
                 </p>
-                <div className="flex flex-col space-y-2 text-sm">
-                  {item.role && (
-                    <div className="flex items-center space-x-2">
-                      <FaUsers size={16} className="text-blue-500" />
-                      <span>{item.role}</span>
-                    </div>
-                  )}
-                  <div className="flex items-center space-x-2 text-gray-500">
+                
+                <div className="flex flex-wrap items-center gap-4 text-sm">
+                  <div className="flex items-center gap-2 text-neutral-500 dark:text-neutral-500">
+                    <Users size={14} />
+                    <span>{item.role}</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-neutral-500 dark:text-neutral-500">
+                    <Calendar size={14} />
                     <span>{item.date}</span>
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </motion.article>
           ))}
         </div>
-      </motion.div>
+
+        {/* Stats summary */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+          viewport={{ once: true }}
+          className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4"
+        >
+          {[
+            { icon: Trophy, label: "Competitions", value: "4+" },
+            { icon: Medal, label: "Awards Won", value: "5+" },
+            { icon: Users, label: "Team Projects", value: "6+" },
+            { icon: Calendar, label: "Years Active", value: "2+" },
+          ].map((stat) => (
+            <div
+              key={stat.label}
+              className="text-center p-6 rounded-2xl bg-neutral-50 dark:bg-neutral-900/50 border border-neutral-200 dark:border-neutral-800"
+            >
+              <stat.icon
+                size={24}
+                className="mx-auto mb-3 text-neutral-400 dark:text-neutral-600"
+              />
+              <p className="text-2xl font-bold text-neutral-900 dark:text-neutral-100 mb-1">
+                {stat.value}
+              </p>
+              <p className="text-sm text-neutral-500 dark:text-neutral-500">
+                {stat.label}
+              </p>
+            </div>
+          ))}
+        </motion.div>
+      </div>
     </div>
   );
 };

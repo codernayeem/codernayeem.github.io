@@ -1,11 +1,6 @@
-import {
-  FaGithub,
-  FaLinkedin,
-  FaFacebook,
-  FaWhatsapp,
-  FaArrowUp,
-} from "react-icons/fa";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { Link } from "react-scroll";
+import { ArrowUp, Heart } from "lucide-react";
 
 const Footer = () => {
   const socialLinks = [
@@ -19,99 +14,121 @@ const Footer = () => {
       label: "LinkedIn",
       link: "https://www.linkedin.com/in/nayeem898",
     },
-    {
-      icon: FaFacebook,
-      label: "Facebook",
-      link: "https://facebook.com/md.nayeem.898",
-    },
-    {
-      icon: FaWhatsapp,
-      label: "WhatsApp",
-      link: "https://wa.me/+8801968199036",
-    },
   ];
 
   const quickLinks = [
     { label: "About", to: "about" },
     { label: "Skills", to: "skills" },
     { label: "Projects", to: "projects" },
+    { label: "Achievements", to: "teamworks" },
     { label: "Education", to: "education" },
     { label: "Contact", to: "contact" },
   ];
 
   return (
-    <footer className="bg-gray-100 dark:bg-gray-800 pt-12 pb-8">
-      <div className="max-w-6xl mx-auto px-4">
-        <div className="grid md:grid-cols-3 gap-8 mb-8">
-          {/* About */}
-          <div>
-            <h3 className="text-xl font-bold mb-4">Md. Nayeem</h3>
-            <p className="text-gray-600 dark:text-gray-300 mb-4">
-              A passionate Mobile App Developer and ML Enthusiast, dedicated to
-              creating innovative solutions that make a difference.
+    <footer className="relative border-t border-neutral-200 dark:border-neutral-800">
+      {/* Main footer content */}
+      <div className="max-w-6xl mx-auto px-6 py-16">
+        <div className="grid md:grid-cols-12 gap-12">
+          {/* Brand section */}
+          <div className="md:col-span-5">
+            <h3
+              className="text-2xl font-bold mb-4"
+              style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+            >
+              Md. Nayeem
+            </h3>
+            <p className="text-neutral-600 dark:text-neutral-400 mb-6 leading-relaxed">
+              Mobile App Developer & ML Engineer based in Bangladesh. Passionate
+              about building elegant solutions that make a difference.
             </p>
-            <div className="flex space-x-4">
+            <div className="flex gap-3">
               {socialLinks.map((social) => (
                 <a
                   key={social.label}
                   href={social.link}
                   target="_blank"
-                  rel="noreferrer"
-                  className="text-gray-600 dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-400 transition-colors"
+                  rel="noopener noreferrer"
+                  aria-label={social.label}
+                  className="w-10 h-10 rounded-full bg-neutral-100 dark:bg-neutral-800 flex items-center justify-center text-neutral-600 dark:text-neutral-400 hover:bg-neutral-200 dark:hover:bg-neutral-700 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors"
                 >
-                  <social.icon size={20} />
+                  <social.icon size={18} />
                 </a>
               ))}
             </div>
           </div>
 
           {/* Quick Links */}
-          <div>
-            <h3 className="text-xl font-bold mb-4">Quick Links</h3>
-            <ul className="space-y-2">
+          <div className="md:col-span-3">
+            <h4 className="text-sm font-semibold text-neutral-500 dark:text-neutral-500 uppercase tracking-wider mb-4">
+              Quick Links
+            </h4>
+            <nav className="space-y-3">
               {quickLinks.map((link) => (
-                <li key={link.to}>
-                  <Link
-                    to={link.to}
-                    spy={true}
-                    smooth={true}
-                    offset={-70}
-                    duration={500}
-                    className="text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 cursor-pointer transition-colors"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
+                <Link
+                  key={link.to}
+                  to={link.to}
+                  spy={true}
+                  smooth={true}
+                  offset={-70}
+                  duration={500}
+                  className="block text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 cursor-pointer transition-colors"
+                >
+                  {link.label}
+                </Link>
               ))}
-            </ul>
+            </nav>
           </div>
 
           {/* Contact Info */}
-          <div>
-            <h3 className="text-xl font-bold mb-4">Contact Info</h3>
-            <ul className="space-y-2 text-gray-600 dark:text-gray-300">
-              <li>Email: nayeem.code@gmail.com</li>
-              <li>Phone: +8801968199036</li>
-              <li>Location: Khulna, Bangladesh</li>
-            </ul>
+          <div className="md:col-span-4">
+            <h4 className="text-sm font-semibold text-neutral-500 dark:text-neutral-500 uppercase tracking-wider mb-4">
+              Get in Touch
+            </h4>
+            <div className="space-y-3 text-neutral-600 dark:text-neutral-400">
+              <p>
+                <a
+                  href="mailto:nayeem.code@gmail.com"
+                  className="hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors"
+                >
+                  nayeem.code@gmail.com
+                </a>
+              </p>
+              <p>
+                <a
+                  href="tel:+8801968199036"
+                  className="hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors"
+                >
+                  +880 1968 199036
+                </a>
+              </p>
+              <p>Khulna, Bangladesh</p>
+            </div>
           </div>
         </div>
+      </div>
 
-        {/* Bottom Bar */}
-        <div className="border-t border-gray-200 dark:border-gray-700 pt-8 mt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-gray-600 dark:text-gray-300 text-center md:text-left mb-4 md:mb-0">
-            © {new Date().getFullYear()} Md. Nayeem. All rights reserved.
+      {/* Bottom bar */}
+      <div className="border-t border-neutral-200 dark:border-neutral-800">
+        <div className="max-w-6xl mx-auto px-6 py-6 flex flex-col sm:flex-row justify-between items-center gap-4">
+          <p className="text-sm text-neutral-500 dark:text-neutral-500 flex items-center gap-1">
+            © {new Date().getFullYear()} Md. Nayeem. Built with{" "}
+            <Heart size={14} className="text-red-500 fill-red-500" /> using React
           </p>
 
+          {/* Back to top button */}
           <Link
             to="home"
             spy={true}
             smooth={true}
             offset={-70}
             duration={500}
-            className="bg-blue-500 text-white p-3 rounded-full cursor-pointer hover:bg-blue-600 transition-colors"
+            className="group flex items-center gap-2 text-sm text-neutral-500 dark:text-neutral-500 hover:text-neutral-900 dark:hover:text-neutral-100 cursor-pointer transition-colors"
           >
-            <FaArrowUp size={20} />
+            Back to top
+            <span className="w-8 h-8 rounded-full border border-neutral-300 dark:border-neutral-700 flex items-center justify-center group-hover:border-neutral-900 dark:group-hover:border-neutral-100 transition-colors">
+              <ArrowUp size={14} />
+            </span>
           </Link>
         </div>
       </div>

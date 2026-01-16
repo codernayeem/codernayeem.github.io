@@ -6,10 +6,10 @@ import ThemeToggler from "./ThemeToggler";
 
 const navItems = [
   { id: "home", label: "Home" },
-  { id: "about", label: "About Me" },
+  { id: "about", label: "About" },
   { id: "skills", label: "Skills" },
   { id: "projects", label: "Projects" },
-  { id: "teamworks", label: "Team Works" },
+  { id: "teamworks", label: "Achievements" },
   { id: "education", label: "Education" },
   { id: "contact", label: "Contact" },
 ];
@@ -20,46 +20,65 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const isScrolled = window.scrollY > 10;
+      const isScrolled = window.scrollY > 20;
       if (isScrolled !== scrolled) {
         setScrolled(isScrolled);
       }
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, [scrolled]);
 
+  // Close menu on escape key
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setMenuOpen(false);
+    };
+    window.addEventListener("keydown", handleEscape);
+    return () => window.removeEventListener("keydown", handleEscape);
+  }, []);
+
   return (
     <header
-      className={`fixed w-full top-0 z-50 backdrop-blur bg-white/75 dark:bg-gray-900/75 transition-all duration-300 border-b 
-        ${
-          scrolled
-            ? "border-gray-200 dark:border-gray-800 py-0"
-            : "border-transparent py-2"
-        }`}
+      className={`fixed w-full top-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? "bg-white/80 dark:bg-neutral-900/80 backdrop-blur-lg border-b border-neutral-200 dark:border-neutral-800 py-2"
+          : "bg-transparent py-4"
+      }`}
     >
-      <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+      <div className="max-w-6xl mx-auto px-6 flex items-center justify-between">
+        {/* Logo */}
         <motion.div
-          initial={{ x: -100 }}
-          animate={{ x: 0 }}
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5, ease: "easeOut" }}
-          className="text-2xl font-extrabold font-mono tracking-wide"
         >
-          Nayeem's <span className="text-indigo-500">Portfolio</span>
+          <Link
+            to="home"
+            spy={true}
+            smooth={true}
+            offset={-70}
+            duration={500}
+            className="cursor-pointer"
+          >
+            <span
+              className="text-xl font-bold tracking-tight text-neutral-900 dark:text-neutral-100"
+              style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+            >
+              nayeem<span className="text-indigo-500">.</span>
+            </span>
+          </Link>
         </motion.div>
 
-        <nav className="hidden md:flex space-x-2 items-center">
+        {/* Desktop Navigation */}
+        <nav className="hidden md:flex items-center gap-1">
           {navItems.map((item, index) => (
             <motion.div
               key={item.id}
-              initial={{ y: -50 }}
-              animate={{ y: 0 }}
-              transition={{
-                duration: 0.3,
-                delay: index * 0.1,
-                ease: "easeOut",
-              }}
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.3, delay: index * 0.05 }}
             >
               <Link
                 to={item.id}
@@ -67,8 +86,8 @@ const Navbar = () => {
                 smooth={true}
                 offset={-70}
                 duration={500}
-                className="cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-800 rounded-md p-2 text-center transition-all duration-300"
-                activeClass="bg-gray-200 dark:bg-gray-800"
+                className="relative px-4 py-2 text-sm font-medium text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 cursor-pointer transition-colors"
+                activeClass="!text-neutral-900 dark:!text-neutral-100"
               >
                 {item.label}
               </Link>
@@ -76,32 +95,37 @@ const Navbar = () => {
           ))}
         </nav>
 
-        <div className="flex items-center space-x-2">
+        {/* Right section */}
+        <div className="flex items-center gap-2">
           <ThemeToggler />
+          
+          {/* Mobile menu button */}
           <button
             onClick={() => setMenuOpen(!menuOpen)}
-            className="md:hidden p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800"
+            className="md:hidden p-2 rounded-lg hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors"
+            aria-label="Toggle menu"
+            aria-expanded={menuOpen}
           >
             <AnimatePresence mode="wait" initial={false}>
               {menuOpen ? (
                 <motion.div
                   key="close"
-                  initial={{ rotate: 0, scale: 0.5 }}
-                  animate={{ rotate: 0, scale: 1 }}
-                  exit={{ rotate: 90, scale: 0.5 }}
+                  initial={{ rotate: -90, opacity: 0 }}
+                  animate={{ rotate: 0, opacity: 1 }}
+                  exit={{ rotate: 90, opacity: 0 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <X size={24} />
+                  <X size={22} />
                 </motion.div>
               ) : (
                 <motion.div
                   key="menu"
-                  initial={{ rotate: 0, scale: 0.5 }}
-                  animate={{ rotate: 0, scale: 1 }}
-                  exit={{ rotate: -90, scale: 0.5 }}
+                  initial={{ rotate: 90, opacity: 0 }}
+                  animate={{ rotate: 0, opacity: 1 }}
+                  exit={{ rotate: -90, opacity: 0 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <Menu size={24} />
+                  <Menu size={22} />
                 </motion.div>
               )}
             </AnimatePresence>
@@ -112,36 +136,50 @@ const Navbar = () => {
       {/* Mobile Menu */}
       <AnimatePresence>
         {menuOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
-            className="bg-white dark:bg-gray-900/90 md:hidden flex flex-col items-center space-y-4 px-4 pb-4 pt-2 overflow-hidden"
-          >
-            {navItems.map((item, index) => (
-              <motion.div
-                key={item.id}
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.3, delay: index * 0.1 }}
-                className="w-full text-center"
-              >
-                <Link
-                  to={item.id}
-                  spy={true}
-                  smooth={true}
-                  offset={-70}
-                  duration={500}
-                  className="cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-800 rounded-md p-2 inline-block transition-all duration-300"
-                  activeClass="bg-gray-200 dark:bg-gray-800"
-                  onClick={() => setMenuOpen(false)}
-                >
-                  {item.label}
-                </Link>
-              </motion.div>
-            ))}
-          </motion.div>
+          <>
+            {/* Backdrop */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="fixed inset-0 bg-black/20 dark:bg-black/40 backdrop-blur-sm md:hidden"
+              onClick={() => setMenuOpen(false)}
+            />
+            
+            {/* Menu panel */}
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
+              className="absolute top-full left-4 right-4 mt-2 md:hidden bg-white dark:bg-neutral-900 rounded-2xl border border-neutral-200 dark:border-neutral-800 shadow-xl overflow-hidden"
+            >
+              <nav className="p-4 space-y-1">
+                {navItems.map((item, index) => (
+                  <motion.div
+                    key={item.id}
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.2, delay: index * 0.05 }}
+                  >
+                    <Link
+                      to={item.id}
+                      spy={true}
+                      smooth={true}
+                      offset={-70}
+                      duration={500}
+                      className="block px-4 py-3 rounded-xl text-neutral-600 dark:text-neutral-400 hover:bg-neutral-100 dark:hover:bg-neutral-800 hover:text-neutral-900 dark:hover:text-neutral-100 cursor-pointer transition-colors"
+                      activeClass="bg-neutral-100 dark:bg-neutral-800 !text-neutral-900 dark:!text-neutral-100"
+                      onClick={() => setMenuOpen(false)}
+                    >
+                      {item.label}
+                    </Link>
+                  </motion.div>
+                ))}
+              </nav>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
     </header>

@@ -1,13 +1,260 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 @import "tailwindcss";
 
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
---font-sans: 'Poppins', sans-serif;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --font-display: 'Space Grotesk', sans-serif;
+  
+  /* Custom color palette - Sophisticated & Minimal */
+  --color-accent: #6366f1;
+  --color-accent-hover: #4f46e5;
+  --color-surface-light: #fafafa;
+  --color-surface-dark: #0a0a0b;
+  --color-card-light: #ffffff;
+  --color-card-dark: #141415;
+  --color-border-light: #e5e5e5;
+  --color-border-dark: #262626;
+  --color-muted-light: #737373;
+  --color-muted-dark: #a3a3a3;
 }
 
-/* root document */
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Root document */
 body {
-    @apply bg-white dark:bg-gray-900 text-gray-950 dark:text-white font-sans transition-colors duration-300;
+  @apply bg-[var(--color-surface-light)] dark:bg-[var(--color-surface-dark)] text-neutral-900 dark:text-neutral-100 font-sans antialiased;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-neutral-100 dark:bg-neutral-900;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-neutral-300 dark:bg-neutral-700 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-neutral-400 dark:bg-neutral-600;
+}
+
+/* Selection */
+::selection {
+  @apply bg-indigo-500/20 text-indigo-900 dark:text-indigo-100;
+}
+
+/* Focus styles */
+*:focus-visible {
+  @apply outline-none ring-2 ring-indigo-500/50 ring-offset-2 ring-offset-white dark:ring-offset-neutral-900;
+}
+
+/* Text gradient utility */
+.text-gradient {
+  @apply bg-clip-text text-transparent bg-linear-to-r from-indigo-500 via-purple-500 to-pink-500;
+}
+
+/* Card styles */
+.card {
+  @apply bg-white dark:bg-[var(--color-card-dark)] rounded-2xl border border-neutral-200 dark:border-neutral-800;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.card:hover {
+  @apply border-neutral-300 dark:border-neutral-700;
+}
+
+/* Subtle grain texture overlay */
+.grain-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.015;
+  z-index: 9999;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Section heading styles */
+.section-heading {
+  @apply text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight;
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.section-subheading {
+  @apply text-neutral-600 dark:text-neutral-400 text-lg md:text-xl max-w-2xl;
+}
+
+/* Button base */
+.btn-primary {
+  @apply inline-flex items-center justify-center gap-2 px-6 py-3 bg-neutral-900 dark:bg-white text-white dark:text-neutral-900 font-medium rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-neutral-900/25 dark:hover:shadow-white/25;
+}
+
+.btn-secondary {
+  @apply inline-flex items-center justify-center gap-2 px-6 py-3 bg-transparent border border-neutral-300 dark:border-neutral-700 text-neutral-900 dark:text-neutral-100 font-medium rounded-full transition-all duration-300 hover:border-neutral-900 dark:hover:border-neutral-100;
+}
+
+/* Link hover effect */
+.link-hover {
+  @apply relative;
+}
+
+.link-hover::after {
+  content: '';
+  @apply absolute bottom-0 left-0 w-0 h-px bg-current transition-all duration-300;
+}
+
+.link-hover:hover::after {
+  @apply w-full;
+}
+
+/* Animated underline */
+.animated-underline {
+  @apply relative inline-block;
+}
+
+.animated-underline::before {
+  content: '';
+  @apply absolute bottom-0 left-0 w-full h-0.5 bg-indigo-500 origin-right scale-x-0 transition-transform duration-300;
+}
+
+.animated-underline:hover::before {
+  @apply origin-left scale-x-100;
+}
+
+/* Grid pattern background */
+.grid-pattern {
+  background-size: 60px 60px;
+  background-image: 
+    linear-gradient(to right, rgb(0 0 0 / 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(0 0 0 / 0.03) 1px, transparent 1px);
+}
+
+.dark .grid-pattern {
+  background-image: 
+    linear-gradient(to right, rgb(255 255 255 / 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(255 255 255 / 0.03) 1px, transparent 1px);
+}
+
+/* Glow effect */
+.glow {
+  @apply relative;
+}
+
+.glow::before {
+  content: '';
+  @apply absolute -inset-1 bg-linear-to-r from-indigo-500 to-purple-500 rounded-full blur-lg opacity-0 transition-opacity duration-300;
+}
+
+.glow:hover::before {
+  @apply opacity-30;
+}
+
+/* Stagger animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+/* Floating animation */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Pulse ring */
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+.pulse-ring::before {
+  content: '';
+  @apply absolute inset-0 rounded-full border-2 border-indigo-500;
+  animation: pulse-ring 2s ease-out infinite;
+}
+
+/* Marquee */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+/* Shimmer effect */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* Responsive typography */
+@media (max-width: 640px) {
+  .section-heading {
+    @apply text-2xl;
+  }
+  
+  .section-subheading {
+    @apply text-base;
+  }
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
 }

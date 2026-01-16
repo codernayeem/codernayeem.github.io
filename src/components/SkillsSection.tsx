@@ -1,145 +1,161 @@
 import { motion } from "framer-motion";
-import { FaReact, FaPython, FaGitAlt, FaJava, FaHtml5 } from "react-icons/fa";
-import { SiFlutter, SiTensorflow, SiFirebase, SiKotlin } from "react-icons/si";
+import { FaReact, FaPython, FaGitAlt, FaJava } from "react-icons/fa";
+import { SiFlutter, SiTensorflow, SiFirebase, SiKotlin, SiDart, SiPytorch } from "react-icons/si";
 import { TbBrandCpp } from "react-icons/tb";
 
-const skills = [
+const skillCategories = [
   {
-    name: "Flutter & Dart",
-    level: 95,
-    icon: SiFlutter,
-    color: "#02569B",
+    title: "Mobile Development",
+    description: "Building seamless cross-platform & native experiences",
+    skills: [
+      { name: "Flutter", icon: SiFlutter, proficiency: "Expert" },
+      { name: "Dart", icon: SiDart, proficiency: "Expert" },
+      { name: "Kotlin", icon: SiKotlin, proficiency: "Advanced" },
+      { name: "Firebase", icon: SiFirebase, proficiency: "Advanced" },
+    ],
   },
   {
-    name: "Python",
-    level: 90,
-    icon: FaPython,
-    color: "#3776AB",
+    title: "AI & Machine Learning",
+    description: "Creating intelligent, data-driven solutions",
+    skills: [
+      { name: "Python", icon: FaPython, proficiency: "Expert" },
+      { name: "TensorFlow", icon: SiTensorflow, proficiency: "Intermediate" },
+      { name: "PyTorch", icon: SiPytorch, proficiency: "Intermediate" },
+    ],
   },
   {
-    name: "Kotlin",
-    level: 90,
-    icon: SiKotlin,
-    color: "#9E3BF8",
-  },
-  {
-    name: "React & Node.js",
-    level: 65,
-    icon: FaReact,
-    color: "#61DAFB",
-  },
-  {
-    name: "TensorFlow & PyTorch",
-    level: 70,
-    icon: SiTensorflow,
-    color: "#FF6F00",
-  },
-  {
-    name: "Firebase",
-    level: 85,
-    icon: SiFirebase,
-    color: "#FFCA28",
-  },
-  {
-    name: "Git & GitHub",
-    level: 90,
-    icon: FaGitAlt,
-    color: "#F05032",
-  },
-  {
-    name: "Java",
-    level: 80,
-    icon: FaJava,
-    color: "#007396",
-  },
-  {
-    name: "C & C++",
-    level: 85,
-    icon: TbBrandCpp,
-    color: "#00599C",
-  },
-  {
-    name: "HTML & CSS",
-    level: 95,
-    icon: FaHtml5,
-    color: "#E34F26",
+    title: "Web & Tools",
+    description: "Full-stack capabilities and dev tooling",
+    skills: [
+      { name: "React", icon: FaReact, proficiency: "Intermediate" },
+      { name: "Git", icon: FaGitAlt, proficiency: "Advanced" },
+      { name: "Java", icon: FaJava, proficiency: "Advanced" },
+      { name: "C++", icon: TbBrandCpp, proficiency: "Advanced" },
+    ],
   },
 ];
 
+const proficiencyColors: Record<string, string> = {
+  Expert: "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border-emerald-500/20",
+  Advanced: "bg-blue-500/10 text-blue-600 dark:text-blue-400 border-blue-500/20",
+  Intermediate: "bg-amber-500/10 text-amber-600 dark:text-amber-400 border-amber-500/20",
+};
+
 const SkillsSection = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center py-20 px-4 md:px-20">
-      <motion.div
-        className="max-w-4xl w-full"
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-      >
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-          My Skills
-        </h2>
+    <div className="relative py-24 md:py-32">
+      <div className="max-w-6xl mx-auto px-6">
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <span className="inline-block text-sm font-semibold text-indigo-500 dark:text-indigo-400 uppercase tracking-wider mb-4">
+            Expertise
+          </span>
+          <h2 className="section-heading mb-4">Skills & Technologies</h2>
+          <p className="section-subheading mx-auto">
+            Technologies I've been working with to bring ideas to life
+          </p>
+        </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-8">
-          {skills.map((skill, index) => (
+        {/* Skills Grid - Asymmetric layout */}
+        <div className="grid lg:grid-cols-12 gap-6">
+          {skillCategories.map((category, categoryIndex) => (
             <motion.div
-              key={skill.name}
-              className="space-y-2"
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              key={category.title}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: categoryIndex * 0.1 }}
               viewport={{ once: true }}
+              className={`card p-8 ${
+                categoryIndex === 0
+                  ? "lg:col-span-7 lg:row-span-2"
+                  : categoryIndex === 1
+                  ? "lg:col-span-5"
+                  : "lg:col-span-5"
+              }`}
             >
-              <div className="flex items-center space-x-3">
-                <skill.icon
-                  size={24}
-                  style={{ color: skill.color }}
-                  className="shrink-0"
-                />
-                <span className="font-medium">{skill.name}</span>
-              </div>
+              <div className="h-full flex flex-col">
+                <div className="mb-6">
+                  <h3 className="text-xl font-semibold text-neutral-900 dark:text-neutral-100 mb-2">
+                    {category.title}
+                  </h3>
+                  <p className="text-neutral-500 dark:text-neutral-500 text-sm">
+                    {category.description}
+                  </p>
+                </div>
 
-              <div className="h-3 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
-                <motion.div
-                  className="h-full rounded-full"
-                  style={{ backgroundColor: skill.color }}
-                  initial={{ width: 0 }}
-                  whileInView={{ width: `${skill.level}%` }}
-                  transition={{ duration: 1, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                />
+                <div className={`grid gap-4 ${categoryIndex === 0 ? "sm:grid-cols-2" : "grid-cols-1"}`}>
+                  {category.skills.map((skill, skillIndex) => (
+                    <motion.div
+                      key={skill.name}
+                      initial={{ opacity: 0, x: -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{
+                        duration: 0.3,
+                        delay: categoryIndex * 0.1 + skillIndex * 0.05,
+                      }}
+                      viewport={{ once: true }}
+                      className="group flex items-center justify-between p-4 rounded-xl bg-neutral-50 dark:bg-neutral-800/50 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors"
+                    >
+                      <div className="flex items-center gap-4">
+                        <div className="w-10 h-10 rounded-lg bg-white dark:bg-neutral-900 shadow-sm flex items-center justify-center text-neutral-600 dark:text-neutral-400 group-hover:scale-110 transition-transform">
+                          <skill.icon size={22} />
+                        </div>
+                        <span className="font-medium text-neutral-900 dark:text-neutral-100">
+                          {skill.name}
+                        </span>
+                      </div>
+                      <span
+                        className={`text-xs font-medium px-2.5 py-1 rounded-full border ${
+                          proficiencyColors[skill.proficiency]
+                        }`}
+                      >
+                        {skill.proficiency}
+                      </span>
+                    </motion.div>
+                  ))}
+                </div>
               </div>
             </motion.div>
           ))}
         </div>
 
+        {/* Additional skills tags */}
         <motion.div
-          className="mt-16 text-center"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
           viewport={{ once: true }}
+          className="mt-12 text-center"
         >
-          <h3 className="text-xl font-semibold mb-4">Other Skills</h3>
-          <div className="flex flex-wrap justify-center gap-4">
-            <span className="px-4 py-2 bg-gray-100 dark:bg-gray-800 rounded-full">
-              UI/UX Design
-            </span>
-            <span className="px-4 py-2 bg-gray-100 dark:bg-gray-800 rounded-full">
-              REST APIs
-            </span>
-            <span className="px-4 py-2 bg-gray-100 dark:bg-gray-800 rounded-full">
-              Machine Learning
-            </span>
-            <span className="px-4 py-2 bg-gray-100 dark:bg-gray-800 rounded-full">
-              Jupyter Notebook
-            </span>
-            <span className="px-4 py-2 bg-gray-100 dark:bg-gray-800 rounded-full">
-              Databases
-            </span>
+          <p className="text-sm text-neutral-500 dark:text-neutral-500 mb-4">
+            Also familiar with
+          </p>
+          <div className="flex flex-wrap justify-center gap-2">
+            {[
+              "REST APIs",
+              "SQLite",
+              "UI/UX Design",
+              "Agile",
+              "CI/CD",
+              "Linux",
+              "Data Analysis",
+            ].map((skill) => (
+              <span
+                key={skill}
+                className="px-4 py-2 text-sm rounded-full bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400 border border-neutral-200 dark:border-neutral-700"
+              >
+                {skill}
+              </span>
+            ))}
           </div>
         </motion.div>
-      </motion.div>
+      </div>
     </div>
   );
 };
