@@ -39,8 +39,8 @@ const Footer = () => {
               Md. Nayeem
             </h3>
             <p className="text-neutral-600 dark:text-neutral-400 mb-6 leading-relaxed">
-              Software Engineer & Full Stack Developer based in Bangladesh. Building 
-              production-ready mobile and web applications that solve real problems.
+              Developer based in Bangladesh who loves building mobile apps, web platforms, 
+              and everything in between. Always learning, always shipping.
             </p>
             <div className="flex gap-3">
               {socialLinks.map((social) => (
@@ -112,8 +112,7 @@ const Footer = () => {
       <div className="border-t border-neutral-200 dark:border-neutral-800">
         <div className="max-w-6xl mx-auto px-6 py-6 flex flex-col sm:flex-row justify-between items-center gap-4">
           <p className="text-sm text-neutral-500 dark:text-neutral-500 flex items-center gap-1">
-            © {new Date().getFullYear()} Md. Nayeem. Built with{" "}
-            <Heart size={14} className="text-red-500 fill-red-500" /> using React
+            © {new Date().getFullYear()} Md. Nayeem
           </p>
 
           {/* Back to top button */}

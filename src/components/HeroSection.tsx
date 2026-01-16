@@ -39,17 +39,6 @@ const HeroSection = () => {
         initial="hidden"
         animate="visible"
       >
-        {/* Status badge */}
-        <motion.div variants={itemVariants} className="mb-8">
-          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-neutral-100 dark:bg-neutral-800/50 text-sm font-medium border border-neutral-200 dark:border-neutral-700">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-            </span>
-            Open for opportunities
-          </span>
-        </motion.div>
-
         {/* Profile image */}
         <motion.div variants={itemVariants} className="mb-8">
           <div className="relative inline-block">
@@ -76,8 +65,8 @@ const HeroSection = () => {
           variants={itemVariants}
           className="text-xl md:text-2xl text-neutral-600 dark:text-neutral-400 mb-6 font-medium"
         >
-          Software Engineer{" "}
-          <span className="text-neutral-400 dark:text-neutral-600">·</span>{" "}
+          Mobile{" "}
+          <span className="text-neutral-400 dark:text-neutral-600">&</span>{" "}
           <span className="text-gradient">Full Stack Developer</span>
         </motion.p>
 
@@ -95,8 +84,8 @@ const HeroSection = () => {
           variants={itemVariants}
           className="text-lg text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto mb-10 leading-relaxed"
         >
-          Building production-ready mobile & web applications. From Flutter apps to 
-          full-stack platforms — shipping code that scales.
+          I love building things that live on the internet — mobile apps, web platforms, 
+          and everything in between. Always curious, always shipping.
         </motion.p>
 
         {/* CTA Buttons */}

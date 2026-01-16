@@ -28,30 +28,22 @@ const AboutSection = () => {
               </h2>
               <div className="space-y-5 text-neutral-600 dark:text-neutral-400 text-lg leading-relaxed">
                 <p>
-                  I'm a software engineer who ships production-ready applications. Currently 
-                  pursuing my CS degree at{" "}
+                  Hey! I'm Nayeem — a developer who genuinely enjoys building stuff. Currently 
+                  studying CS at{" "}
                   <span className="text-neutral-900 dark:text-neutral-200 font-medium">
                     KUET
                   </span>
-                  {" "}while working professionally as a mobile developer at{" "}
-                  <span className="text-neutral-900 dark:text-neutral-200 font-medium">
-                    Transforms AI
-                  </span>
-                  {" "}and co-founding{" "}
-                  <span className="text-neutral-900 dark:text-neutral-200 font-medium">
-                    AlgoOasis
-                  </span>.
+                  , but most of my learning happens while shipping real projects.
                 </p>
                 <p>
-                  My expertise spans the full development lifecycle — from system design to 
-                  deployment. I build cross-platform mobile apps with Flutter, Kotlin & Swift, 
-                  and full-stack web applications using React, Next.js, and Node.js with 
-                  databases like PostgreSQL and MySQL.
+                  I love the entire journey — from a rough idea to something people actually use. 
+                  Whether it's a mobile app, a web platform, or figuring out how to deploy things 
+                  properly, I enjoy the process of making it all work together.
                 </p>
                 <p>
-                  I've handled real-world deployments on cPanel, VPS, and cloud platforms, 
-                  setting up CI/CD pipelines with GitHub Actions. Beyond coding, I'm passionate 
-                  about Machine Learning and building intelligent features into products.
+                  When I'm not coding, you'll probably find me exploring new tech, tinkering with 
+                  side projects, or diving into Machine Learning experiments. I believe the best 
+                  way to learn is to build, break, and rebuild.
                 </p>
               </div>
             </div>
@@ -65,9 +57,9 @@ const AboutSection = () => {
                   </h3>
                   <div className="space-y-6">
                     {[
-                      { label: "Primary Focus", value: "Full Stack Development" },
-                      { label: "Languages", value: "TypeScript, Dart, Python" },
-                      { label: "Frameworks", value: "Flutter, React, Next.js" },
+                      { label: "Currently Into", value: "Building & Shipping" },
+                      { label: "Favorite Stack", value: "Flutter, React, Next.js" },
+                      { label: "Fun Fact", value: "ML Enthusiast" },
                       { label: "Education", value: "CSE @ KUET" },
                     ].map((fact) => (
                       <div key={fact.label} className="flex justify-between items-center">
